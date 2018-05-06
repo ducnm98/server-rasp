@@ -4,8 +4,12 @@ var sequelize = require('../config/sequelize');
 var Sequelize = require('sequelize');
 
 router.post('/', (req, res, next) => {
-  sequelize.query("CALL `insertAgriculter`(:temperatureOut, :temperatureIn, :humidity)", {
+  console.log(req.body.temperatureOut);
+  console.log(req.body.temperatureIn);
+  console.log(req.body.humidity);
+  sequelize.query("CALL `insertAgriculterControl`(:potID, :temperatureOut, :temperatureIn, :humidity)", {
     replacements: {
+      potID: 1,
       temperatureOut: req.body.temperatureOut,
       temperatureIn: req.body.temperatureIn,
       humidity: req.body.humidity,
@@ -15,6 +19,7 @@ router.post('/', (req, res, next) => {
     next();
   }).catch(err => {
     console.log('Data send to server at ', new Date(), ' has an errorr: ', err);
+    next();
   })
 });
 
