@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS `argiculterDatabase`;
-ALTER DATABASE `argiculterDatabase` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS `agricultureDatabase`;
+ALTER DATABASE `agricultureDatabase` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE `pots` (
   `potID` VARCHAR(50) NOT NULL,
