@@ -16,11 +16,13 @@ router.get('/:humidityOut/:humidityIn/:temperature', (req, res, next) => {
     }
   }).then(data => {
     console.log(data, '\n Data send to server at ', new Date());
-    //res.send("Update successful")
+    res.setHeader('content-type', 'text/html');
+    res.send("Update successful")
     next();
   }).catch(err => {
     console.log('Data send to server at ', new Date(), ' has an errorr: ', err);
-    //res.send("Update erros")
+    res.setHeader('content-type', 'text/html');
+    res.send("Update erros")
     next();
   })
 });
