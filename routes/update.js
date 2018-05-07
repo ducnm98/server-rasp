@@ -7,12 +7,12 @@ router.post('/', (req, res, next) => {
   console.log(req.body.temperatureOut);
   console.log(req.body.temperatureIn);
   console.log(req.body.humidity);
-  sequelize.query("CALL `insertAgriculterControl`(:potID, :temperatureOut, :temperatureIn, :humidity)", {
+  sequelize.query("CALL `insertAgriculterControl`(:potID, :humidityOut, :humidityIn, :temperature)", {
     replacements: {
       potID: 1,
-      temperatureOut: req.body.temperatureOut,
-      temperatureIn: req.body.temperatureIn,
-      humidity: req.body.humidity,
+      humidityOut: req.body.humidityOut,
+      humidityIn: req.body.humidityIn,
+      temperature: req.body.temperature,
     }
   }).then(data => {
     console.log(data, '\n Data send to server at ', new Date());
