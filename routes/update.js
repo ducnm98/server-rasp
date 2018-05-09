@@ -3,13 +3,13 @@ var router = express.Router();
 var sequelize = require('../config/sequelize');
 var Sequelize = require('sequelize');
 
-router.get('/:humidityOut/:humidityIn/:temperature', (req, res, next) => {
+router.get('/:potID/:humidityOut/:humidityIn/:temperature', (req, res, next) => {
   console.log(req.params.temperatureOut);
   console.log(req.params.temperatureIn);
   console.log(req.params.humidity);
   sequelize.query("CALL `insertAgriculterControl`(:potID, :humidityOut, :humidityIn, :temperature)", {
     replacements: {
-      potID: 1,
+      potID: req.params.potID,
       humidityOut: req.params.humidityOut,
       humidityIn: req.params.humidityIn,
       temperature: req.params.temperature,

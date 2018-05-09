@@ -27,3 +27,16 @@ BEGIN
 END;
  $$
 DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE dataInDate(potID VARCHAR(50), timeRequest DATETIME)
+BEGIN 
+  START TRANSACTION;
+  SELECT *
+  FROM `enviromentControl` EC
+  WHERE EC.potID = potID
+  AND DATE(EC.time) = timeRequest;
+  COMMIT;
+END;
+ $$
+DELIMITER ;

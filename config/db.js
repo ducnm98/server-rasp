@@ -1,8 +1,8 @@
 // Connect to database in localhost
 module.exports = {
   database: "agricultureDatabase",
-  username: "micha",
-  password: "micha",
+  username: "root",
+  password: "",
   host: "localhost",
   dialect: "mysql"
 }
